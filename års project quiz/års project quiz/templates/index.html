@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMester - Forside</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🎯 Velkommen til QuizMester!</h1>
+            <p>Test din viden med vores spændende quiz!</p>
+            
+            <div class="info-box">
+                <h3>📋 Om quizzen:</h3>
+                <ul>
+                    <li>5 spørgsmål om forskellige emner</li>
+                    <li>Få feedback på dine svar</li>
+                    <li>Se din samlede score til sidst</li>
+                    <li>Lær noget nyt undervejs!</li>
+                </ul>
+            </div>
+            
+            <a href="/quiz" class="btn btn-primary">Start Quiz ➤</a>
+        </div>
+    </div>
+</body>
+</html>
