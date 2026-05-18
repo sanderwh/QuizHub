@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMester - Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>📝 Quiz</h1>
+            <p>Besvar alle spørgsmålene:</p>
+            
+            <form method="POST" action="/quiz">
+                <!-- Spørgsmål 1 -->
+                <div class="question-card">
+                    <h3>Spørgsmål 1: {{ sporgsmaal[0].sporgsmaal }}</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="{{ sporgsmaal[0].muligheder[0] }}" required>
+                            <span>{{ sporgsmaal[0].muligheder[0] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="{{ sporgsmaal[0].muligheder[1] }}" required>
+                            <span>{{ sporgsmaal[0].muligheder[1] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="{{ sporgsmaal[0].muligheder[2] }}" required>
+                            <span>{{ sporgsmaal[0].muligheder[2] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="{{ sporgsmaal[0].muligheder[3] }}" required>
+                            <span>{{ sporgsmaal[0].muligheder[3] }}</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Spørgsmål 2 -->
+                <div class="question-card">
+                    <h3>Spørgsmål 2: {{ sporgsmaal[1].sporgsmaal }}</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="{{ sporgsmaal[1].muligheder[0] }}" required>
+                            <span>{{ sporgsmaal[1].muligheder[0] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="{{ sporgsmaal[1].muligheder[1] }}" required>
+                            <span>{{ sporgsmaal[1].muligheder[1] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="{{ sporgsmaal[1].muligheder[2] }}" required>
+                            <span>{{ sporgsmaal[1].muligheder[2] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="{{ sporgsmaal[1].muligheder[3] }}" required>
+                            <span>{{ sporgsmaal[1].muligheder[3] }}</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Spørgsmål 3 -->
+                <div class="question-card">
+                    <h3>Spørgsmål 3: {{ sporgsmaal[2].sporgsmaal }}</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="{{ sporgsmaal[2].muligheder[0] }}" required>
+                            <span>{{ sporgsmaal[2].muligheder[0] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="{{ sporgsmaal[2].muligheder[1] }}" required>
+                            <span>{{ sporgsmaal[2].muligheder[1] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="{{ sporgsmaal[2].muligheder[2] }}" required>
+                            <span>{{ sporgsmaal[2].muligheder[2] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="{{ sporgsmaal[2].muligheder[3] }}" required>
+                            <span>{{ sporgsmaal[2].muligheder[3] }}</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Spørgsmål 4 -->
+                <div class="question-card">
+                    <h3>Spørgsmål 4: {{ sporgsmaal[3].sporgsmaal }}</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q4" value="{{ sporgsmaal[3].muligheder[0] }}" required>
+                            <span>{{ sporgsmaal[3].muligheder[0] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="{{ sporgsmaal[3].muligheder[1] }}" required>
+                            <span>{{ sporgsmaal[3].muligheder[1] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="{{ sporgsmaal[3].muligheder[2] }}" required>
+                            <span>{{ sporgsmaal[3].muligheder[2] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="{{ sporgsmaal[3].muligheder[3] }}" required>
+                            <span>{{ sporgsmaal[3].muligheder[3] }}</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Spørgsmål 5 -->
+                <div class="question-card">
+                    <h3>Spørgsmål 5: {{ sporgsmaal[4].sporgsmaal }}</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q5" value="{{ sporgsmaal[4].muligheder[0] }}" required>
+                            <span>{{ sporgsmaal[4].muligheder[0] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="{{ sporgsmaal[4].muligheder[1] }}" required>
+                            <span>{{ sporgsmaal[4].muligheder[1] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="{{ sporgsmaal[4].muligheder[2] }}" required>
+                            <span>{{ sporgsmaal[4].muligheder[2] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="{{ sporgsmaal[4].muligheder[3] }}" required>
+                            <span>{{ sporgsmaal[4].muligheder[3] }}</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Aflever svar ✓</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
