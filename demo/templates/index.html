@@ -9,19 +9,19 @@
 <body>
     <div class="container">
         <div class="card">
-            <h1>🎯 Velkommen til QuizMester!</h1>
+            <h1> Velkommen til QuizMester!</h1>
             <p>Test din viden med vores spændende quizzer!</p>
             
             {% if admin_logget_ind %}
             <div class="info-box" style="background: #c6f6d5; border-left: 4px solid #38a169;">
-                <p>🔐 Du er logget ind som admin! 
+                <p> Du er logget ind som admin! 
                    <a href="/admin/dashboard">Gå til admin panel →</a>
                 </p>
             </div>
             {% endif %}
             
             <div class="info-box">
-                <h3>📋 Om siden:</h3>
+                <h3 Om siden:</h3>
                 <ul>
                     <li>Vælg mellem forskellige quizzer</li>
                     <li>Opret dine egne quizzer</li>
@@ -30,7 +30,7 @@
                 </ul>
             </div>
             
-            <h2>📚 Tilgængelige quizzer:</h2>
+            <h2> Tilgængelige quizzer:</h2>
             
             {% if quizzes %}
                 <ul class="quiz-list">
@@ -48,12 +48,12 @@
             {% endif %}
             
             <div class="button-group">
-                <a href="/create_quiz" class="btn btn-primary">➕ Opret ny quiz</a>
-                <a href="/select_quiz" class="btn btn-secondary">📚 Se alle quizzes</a>
+                <a href="/create_quiz" class="btn btn-primary"> Opret ny quiz</a>
+                <a href="/select_quiz" class="btn btn-secondary"> Se alle quizzes</a>
                 {% if not admin_logget_ind %}
-                <a href="/admin/login" class="btn btn-secondary">🔐 Admin login</a>
+                <a href="/admin/login" class="btn btn-secondary"> Admin login</a>
                 {% else %}
-                <a href="/admin/logout" class="btn btn-danger">🚪 Log ud</a>
+                <a href="/admin/logout" class="btn btn-danger"> Log ud</a>
                 {% endif %}
             </div>
         </div>
