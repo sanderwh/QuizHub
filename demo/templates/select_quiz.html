@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vælg Quiz - QuizMester</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>📚 Vælg en quiz</h1>
+            <p>Klik på en quiz for at starte:</p>
+            
+            {% if quizzes %}
+                <ul class="quiz-list">
+                    {% for quiz in quizzes %}
+                    <li>
+                        <a href="/quiz/{{ quiz.filnavn }}">
+                            <strong>{{ quiz.navn }}</strong>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <div class="info-box">
+                    <p>Ingen quizzes endnu.</p>
+                    <p>Opret din første quiz ved at klikke på knappen nedenfor!</p>
+                </div>
+            {% endif %}
+            
+            <div class="button-group">
+                <a href="/create_quiz" class="btn btn-primary">➕ Opret ny quiz</a>
+                <a href="/" class="btn btn-secondary">🏠 Til forsiden</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opret Quiz - QuizMester</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>➕ Opret en ny quiz</h1>
+            <p>Udfyld formularen for at oprette din egen quiz:</p>
+            
+            <form method="POST" action="/create_quiz">
+                <label>Quiz navn:</label>
+                <input type="text" name="quiz_navn" placeholder="Fx: Historie Quiz" required>
+                
+                <label>Beskrivelse (valgfri):</label>
+                <textarea name="beskrivelse" rows="2" placeholder="En kort beskrivelse af quizzen..."></textarea>
+                
+                <label>Antal spørgsmål:</label>
+                <input type="number" name="antal_spm" id="antal_spm" value="3" min="1" max="10">
+                
+                <button type="button" onclick="genererSpgFelter()" class="btn btn-secondary">Generer spørgsmålsfelter</button>
+                
+                <div id="spg_felter"></div>
+                
+                <br>
+                <button type="submit">💾 Gem quiz</button>
+            </form>
+            
+            <div class="button-group">
+                <a href="/" class="btn btn-secondary">🏠 Til forsiden</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function genererSpgFelter() {
+            let antal = document.getElementById('antal_spm').value;
+            let container = document.getElementById('spg_felter');
+            container.innerHTML = '';
+            
+            for (let i = 0; i < antal; i++) {
+                container.innerHTML += `
+                    <div class="question-card">
+                        <h3>Spørgsmål ${i+1}</h3>
+                        
+                        <label>Spørgsmålstekst:</label>
+                        <input type="text" name="sp_${i}" placeholder="Skriv dit spørgsmål her..." required>
+                        
+                        <label>Mulighed A:</label>
+                        <input type="text" name="mul_${i}_0" placeholder="Svarmulighed 1" required>
+                        
+                        <label>Mulighed B:</label>
+                        <input type="text" name="mul_${i}_1" placeholder="Svarmulighed 2" required>
+                        
+                        <label>Mulighed C:</label>
+                        <input type="text" name="mul_${i}_2" placeholder="Svarmulighed 3" required>
+                        
+                        <label>Mulighed D:</label>
+                        <input type="text" name="mul_${i}_3" placeholder="Svarmulighed 4" required>
+                        
+                        <label>Rigtigt svar:</label>
+                        <input type="text" name="rigtigt_${i}" placeholder="Skriv det præcist korrekte svar (som en af mulighederne)" required>
+                    </div>
+                `;
+            }
+        }
+        
+        // Generer felter automatisk når siden loads
+        window.onload = function() {
+            genererSpgFelter();
+        }
+    </script>
+</body>
+</html>

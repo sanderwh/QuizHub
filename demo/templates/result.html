@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultat - {{ quiz_navn }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🏆 Dit resultat: {{ quiz_navn }}</h1>
+            
+            <div class="score-box">
+                <div class="score-circle">
+                    <span class="score-number">{{ score }}</span>
+                    <span class="score-total">/{{ total }}</span>
+                </div>
+                <p class="score-procent">{{ "%.1f"|format(procent) }}% rigtige</p>
+            </div>
+            
+            <h2>Detaljeret feedback:</h2>
+            
+            {% for resultat in resultater %}
+            <div class="result-card {% if resultat.er_rigtigt %}correct{% else %}incorrect{% endif %}">
+                <h3>{{ loop.index }}. {{ resultat.sporgsmaal }}</h3>
+                <p><strong>Dit svar:</strong> {{ resultat.dit_svar }}</p>
+                <p><strong>Rigtigt svar:</strong> {{ resultat.rigtigt_svar }}</p>
+                {% if resultat.er_rigtigt %}
+                <p class="feedback correct-feedback">✓ Korrekt! Godt klaret!</p>
+                {% else %}
+                <p class="feedback incorrect-feedback">✗ Forkert! Prøv igen næste gang.</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+            
+            <div class="button-group">
+                <a href="/select_quiz" class="btn btn-secondary">📚 Prøv en anden quiz</a>
+                <a href="/" class="btn btn-primary">🏠 Til forsiden</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

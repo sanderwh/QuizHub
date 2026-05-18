@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMester - Forside</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🎯 Velkommen til QuizMester!</h1>
+            <p>Test din viden med vores spændende quizzer!</p>
+            
+            {% if admin_logget_ind %}
+            <div class="info-box" style="background: #c6f6d5; border-left: 4px solid #38a169;">
+                <p>🔐 Du er logget ind som admin! 
+                   <a href="/admin/dashboard">Gå til admin panel →</a>
+                </p>
+            </div>
+            {% endif %}
+            
+            <div class="info-box">
+                <h3>📋 Om siden:</h3>
+                <ul>
+                    <li>Vælg mellem forskellige quizzer</li>
+                    <li>Opret dine egne quizzer</li>
+                    <li>Få feedback på dine svar</li>
+                    <li>Se din score til sidst</li>
+                </ul>
+            </div>
+            
+            <h2>📚 Tilgængelige quizzer:</h2>
+            
+            {% if quizzes %}
+                <ul class="quiz-list">
+                    {% for quiz in quizzes %}
+                    <li>
+                        <a href="/quiz/{{ quiz.filnavn }}">
+                            <strong>{{ quiz.navn }}</strong>
+                            <small style="display: block; color: #666;">{{ quiz.beskrivelse }}</small>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Ingen quizzes endnu. Opret din første quiz!</p>
+            {% endif %}
+            
+            <div class="button-group">
+                <a href="/create_quiz" class="btn btn-primary">➕ Opret ny quiz</a>
+                <a href="/select_quiz" class="btn btn-secondary">📚 Se alle quizzes</a>
+                {% if not admin_logget_ind %}
+                <a href="/admin/login" class="btn btn-secondary">🔐 Admin login</a>
+                {% else %}
+                <a href="/admin/logout" class="btn btn-danger">🚪 Log ud</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

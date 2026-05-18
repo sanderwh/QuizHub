@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Admin Panel</h1>
+            
+            <h2>Alle quizzes:</h2>
+            
+            {% for quiz in quizzes %}
+            <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+                <strong>{{ quiz.navn }}</strong>
+                <a href="/admin/slet/{{ quiz.filnavn }}" 
+                   onclick="return confirm('Slet quiz?')">
+                    Slet
+                </a>
+            </div>
+            {% endfor %}
+            
+            <a href="/">Forsiden</a>
+            <a href="/admin/logout">Log ud</a>
+        </div>
+    </div>
+</body>
+</html>

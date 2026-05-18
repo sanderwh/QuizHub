@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ quiz_navn }} - Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>📝 {{ quiz_navn }}</h1>
+            <p>Besvar alle spørgsmålene:</p>
+            
+            <form method="POST">
+                {% for i in range(sporgsmaal|length) %}
+                <div class="question-card">
+                    <h3>Spørgsmål {{ i+1 }}: {{ sporgsmaal[i].sporgsmaal }}</h3>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q{{ i }}" value="{{ sporgsmaal[i].muligheder[0] }}" required>
+                            <span>{{ sporgsmaal[i].muligheder[0] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q{{ i }}" value="{{ sporgsmaal[i].muligheder[1] }}">
+                            <span>{{ sporgsmaal[i].muligheder[1] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q{{ i }}" value="{{ sporgsmaal[i].muligheder[2] }}">
+                            <span>{{ sporgsmaal[i].muligheder[2] }}</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q{{ i }}" value="{{ sporgsmaal[i].muligheder[3] }}">
+                            <span>{{ sporgsmaal[i].muligheder[3] }}</span>
+                        </label>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                <button type="submit">Aflever svar ✓</button>
+            </form>
+            
+            <div class="button-group">
+                <a href="/" class="btn btn-secondary">🏠 Til forsiden</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

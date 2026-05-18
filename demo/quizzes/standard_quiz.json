@@ -1,0 +1,31 @@
+{
+    "navn": "Standard Quiz",
+    "beskrivelse": "En almindelig quiz med 5 spørgsmål",
+    "sporgsmaal": [
+        {
+            "sporgsmaal": "Hvad er hovedstaden i Danmark?",
+            "muligheder": ["Stockholm", "Oslo", "København", "Helsinki"],
+            "rigtigt_svar": "København"
+        },
+        {
+            "sporgsmaal": "Hvad er 7 + 3?",
+            "muligheder": ["9", "10", "11", "12"],
+            "rigtigt_svar": "10"
+        },
+        {
+            "sporgsmaal": "Hvilken planet er kendt som den røde planet?",
+            "muligheder": ["Jupiter", "Mars", "Venus", "Saturn"],
+            "rigtigt_svar": "Mars"
+        },
+        {
+            "sporgsmaal": "Hvem skrev 'Hamlet'?",
+            "muligheder": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
+            "rigtigt_svar": "William Shakespeare"
+        },
+        {
+            "sporgsmaal": "Hvad er grundstoffet for vand?",
+            "muligheder": ["CO2", "O2", "H2O", "NaCl"],
+            "rigtigt_svar": "H2O"
+        }
+    ]
+}
